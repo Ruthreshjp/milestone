@@ -33,7 +33,7 @@ function AccountLog() {
     }
 
     try {
-      await api.post('https://milestone-2-94o5.onrender.com/accountlog', { vehicleNo, reason, cost: costNum }, {
+      await api.post('https://milestone-2-94o5.onrender.com/api/accountlog', { vehicleNo, reason, cost: costNum }, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSuccess('Expense added successfully!');
@@ -57,7 +57,7 @@ function AccountLog() {
     }
 
     try {
-      const res = await api.get('https://milestone-2-94o5.onrender.com/accountlog/summary', {
+      const res = await api.get('https://milestone-2-94o5.onrender.com/api/accountlog/summary', {
         headers: { Authorization: `Bearer ${token}` },
         params: { period },
       });

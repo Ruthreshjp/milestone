@@ -23,7 +23,7 @@ function History() {
     }
 
     try {
-      const res = await api.get('https://milestone-2-94o5.onrender.com/history', {
+      const res = await api.get('https://milestone-2-94o5.onrender.com/api/history', {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log('Raw history data:', res.data);

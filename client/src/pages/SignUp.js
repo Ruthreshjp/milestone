@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../api';
+import api from '../api'; // axios instance
 
 function SignUp() {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ function SignUp() {
     const token = localStorage.getItem('token');
     if (token) {
       console.log('SignUp: Checking token validity');
-      api.get('https://milestone-2-94o5.onrender.com/profile', {
+      api.get('https://milestone-2-94o5.onrender.com/api/profile', {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then(() => {
@@ -30,10 +30,15 @@ function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Submitting signup with:', { email, username, userType, password }); // Debug log
+    console.log('Submitting signup with:', { email, username, userType, password });
     try {
-      console.log('SignUp: Sending request to /signup', { email, username, userType, password });
-      await api.post('https://milestone-2-94o5.onrender.com/signup', { email, username, userType, password });
+      console.log('SignUp: Sending request to /api/signup', { email, username, userType, password });
+      await api.post('https://milestone-2-94o5.onrender.com/api/signup', {
+        email,
+        username,
+        userType,
+        password,
+      });
       setError('');
       console.log('SignUp: Sign-up successful, redirecting to /signin');
       navigate('/signin');
@@ -96,7 +101,7 @@ function SignUp() {
       </form>
       <p className="mt-4">
         Already have an account?{' '}
-        <button onClick={() => navigate('/signin')} className="text-white-400">
+        <button onClick={() => navigate('/signin')} className="text-white-400 underline">
           Sign In
         </button>
       </p>

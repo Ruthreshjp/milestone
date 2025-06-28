@@ -73,7 +73,7 @@ function MileageCalculator() {
     };
 
     try {
-      await api.post('https://milestone-2-94o5.onrender.com/mileage', mileageData, {
+      await api.post('https://milestone-2-94o5.onrender.com/api/mileage', mileageData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSuccess('Mileage data saved successfully!');

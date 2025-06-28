@@ -58,7 +58,7 @@ function TripBook() {
     }
 
     try {
-      await api.post('https://milestone-2-94o5.onrender.com/trip', {
+      await api.post('https://milestone-2-94o5.onrender.com/api/trip', {
         vehicleNo,
         initialKm: parseFloat(initialKm),
         finalKm: parseFloat(finalKm),

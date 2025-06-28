@@ -12,7 +12,7 @@ function SignIn() {
     const token = localStorage.getItem('token');
     if (token) {
       console.log('SignIn: Checking token validity');
-      api.get('https://milestone-2-94o5.onrender.com/profile', {
+      api.get('https://milestone-2-94o5.onrender.com/api/profile', {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then(() => {
@@ -30,7 +30,7 @@ function SignIn() {
     e.preventDefault();
     try {
       console.log('SignIn: Sending request to /signin');
-      const res = await api.post('https://milestone-2-94o5.onrender.com/signin', { email, password });
+      const res = await api.post('https://milestone-2-94o5.onrender.com/api/signin', { email, password });
       localStorage.setItem('token', res.data.token);
       console.log('SignIn: Sign-in successful, redirecting to /home');
       navigate('/home');
