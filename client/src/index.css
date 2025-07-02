@@ -78,3 +78,33 @@ nav a, nav button {
 nav a:hover, nav button:hover {
   color: #63b3ed;
 }
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  nav {
+    padding: 0.5rem;
+  }
+
+  nav a,
+  nav button {
+    display: block;
+    width: 100%;
+    margin: 0.25rem 0;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  input, select {
+    font-size: 0.9rem;
+  }
+
+  button {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
